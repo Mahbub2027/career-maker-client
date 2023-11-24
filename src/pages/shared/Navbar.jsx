@@ -39,7 +39,7 @@ const Navbar = () => {
                             user && <>
                                 <li>
                                     <Link to='/dashBoard'>Dashboard</Link>
-                                    <ul className="p-2">
+                                    <ul className="p-2 z-10">
                                     <li><Link to='/myServices'>My Services</Link></li>
                                     <li><Link to='/addServices'>Add services</Link></li>
                                     <li><Link to='/mySchedules'>My schedules</Link></li>
@@ -50,7 +50,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">CareerHub</a>
+                <a className=" text-3xl font-bold">Home<span className="text-orange-500">Career</span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -60,7 +60,7 @@ const Navbar = () => {
                             <li tabIndex={0}>
                             <details>
                                 <summary><Link to='/dashBoard'>Dashboard</Link></summary>
-                            <ul className="p-2 w-36">
+                            <ul className="p-2 w-36 z-10">
                                 <li><Link to='/myServices'>My Services</Link></li>
                                 <li><Link to='/addServices'>Add services</Link></li>
                                 <li><Link to='/mySchedules'>My schedules</Link></li>
@@ -74,8 +74,8 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user ? <button onClick={handleLogOut} className="bg-blue-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Logout</Link></button> :
-                    <button className="bg-blue-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Login</Link></button>
+                    user ? <button onClick={handleLogOut} className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Logout</Link></button> :
+                    <button className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Login</Link></button>
                 }
             </div>
         </div>

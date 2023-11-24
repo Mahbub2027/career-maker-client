@@ -5,7 +5,7 @@ const Footer = () => {
             <footer className="footer p-10 bg-neutral text-white">
                 <aside>
 
-                    <h2 className="text-4xl font-bold mb-3">CareerMaker</h2>
+                    <h2 className="text-4xl font-bold mb-3">Home<span className="text-orange-500">Career</span></h2>
                     <p>Copyright © 2023 - All right reserved</p>
                 </aside>
                 <nav>
