@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import Services from "../Services/Services";
 import About from "../About/About";
 import Contact from "../Contact/Contact";
+import Offer from "../Offer/Offer";
 
 const Home = () => {
     const services = useLoaderData();
@@ -14,6 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <About></About>
             <Services services={services}></Services>
+            <Offer></Offer>
             <Contact></Contact>
             <Footer></Footer>
         </div>
