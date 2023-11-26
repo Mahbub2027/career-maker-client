@@ -7,6 +7,7 @@ import SignUp from "../auth/SignUp";
 import AddServices from "../pages/Dashboard/AddServices/AddServices";
 import ServicesDetails from "../pages/HomePages/Services/ServicesDetails";
 import AllServices from "../pages/AllServices/AllServices";
+import PrivateRoute from "./PrivateRoute";
 // import BrowserTab from "../BrowserTab/BrowserTab";
 // import Services from "../pages/HomePages/Services/Services";
 
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addServices',
-                element: <AddServices></AddServices>
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
         ]
     }

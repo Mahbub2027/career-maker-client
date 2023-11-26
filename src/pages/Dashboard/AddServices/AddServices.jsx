@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import Footer from "../../shared/Footer";
 import Navbar from "../../shared/Navbar";
 
@@ -28,12 +29,17 @@ const AddServices = () => {
         .then(res=> res.json())
         .then(data=>{
             console.log(data);
-            alert("Data inserted successfully")
+            Swal.fire({
+                title: 'Good job',
+                text: 'Service added successfully',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+                })
         })
     }
 
     return (
-        <div className="bg-gray-400"> 
+        <div className="bg-slate-100"> 
             <Navbar></Navbar>
         <div className="w-10/12 mx-auto my-5">
             {/* bg-[#F4F3F0]   text-[#374151]*/}
