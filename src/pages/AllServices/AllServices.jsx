@@ -4,6 +4,7 @@ import Navbar from "../shared/Navbar";
 import { useEffect, useRef, useState } from "react";
 // import { FaArrowDown } from "react-icons/fa";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { Typewriter } from 'react-simple-typewriter'
 
 const AllServices = () => {
     // const loadServices = useLoaderData();
@@ -46,7 +47,20 @@ const AllServices = () => {
                 <div className="hero-overlay bg-black bg-opacity-30"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="text-black">
-                        <h1 className="mb-5 text-5xl font-bold">All Services</h1>
+                        <h1 className="mb-5 text-5xl font-bold">
+                            Services {' '}
+                            <span style={{ color: 'red', fontWeight: 'bold' }}>
+                                <Typewriter
+                                    words={['Garden cleaning', 'Floor cleaning', 'House Cleaning', 'Repair furniture']}
+                                    loop={0}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={100}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                ></Typewriter>
+                            </span>
+                            </h1>
                         <p className="mb-5 font-semibold">Your go-to platform for hassle-free home services. Connect with trusted professionals for cleaning, repairs, and more.</p>
                         
                         <div className="join">
