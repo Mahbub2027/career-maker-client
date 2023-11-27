@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateProfileDetails} = useContext(AuthContext);
     const [registrationError, setRegistrationError] = useState();
     const location = useLocation();
     const navigate = useNavigate();
@@ -39,13 +39,23 @@ const SignUp = () => {
         createUser(email, password)
         .then(res=>{
             console.log(res.user)
-            Swal.fire({
-                title: 'Registration Successful',
-                text: 'Do you want to continue',
-                icon: 'success',
-                confirmButtonText: 'ok'
-                })
-            navigate(location?.state ? location?.state : '/')
+            updateProfileDetails(name, photo)
+            .then(()=> {
+                Swal.fire({
+                    title: 'Registration Successful',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'ok'
+                    })
+                navigate(location?.state ? location?.state : '/')
+            })
+            // Swal.fire({
+            //     title: 'Registration Successful',
+            //     text: 'Do you want to continue',
+            //     icon: 'success',
+            //     confirmButtonText: 'ok'
+            //     })
+            // navigate(location?.state ? location?.state : '/')
         })
         .catch(error=>{
             console.log(error)

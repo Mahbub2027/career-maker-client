@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+// import { AuthContext } from "../../../provider/AuthProvider";
 
 // import { useLoaderData } from "react-router-dom";
 
 const Services = () => {
+    // const {user} = useContext(AuthContext);
     const [services, setServices] = useState([])
 
     // const [displayServices, setDisplayServices] = useState([]);
@@ -33,9 +35,12 @@ const Services = () => {
                                 <figure><img src={service.photo} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{service.name}</h2>
-                                    <p>{service.description}</p>
-                                    <p>{service.providerName}</p>
-                                    <p>{service.price}</p>
+                                    <p>Description: {service.description}</p>
+                                    <p>Price: {service.price}</p>
+                                    <div className="flex flex-row item-center gap-3">
+                                        <div><p><img className="w-12 h-12 rounded" src={service.providerPhoto} alt="" /></p></div>
+                                        <div><p>{service.providerName}</p></div>
+                                    </div>
                                     <div className="card-actions justify-center">
                                         <Link to={`/services/${service._id}`}><button className="btn btn-primary">View Details</button></Link>
                                     </div>

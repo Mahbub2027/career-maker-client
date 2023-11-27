@@ -88,10 +88,14 @@ const AllServices = () => {
                                 <figure><img src={loadService.photo} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{loadService.name}</h2>
-                                    <p>{loadService.description}</p>
-                                    <p>{loadService.providerName}</p>
-                                    <p>{loadService.area}</p>
-                                    <p>{loadService.price}</p>
+                                    <p>Description: {loadService.description}</p>
+                                    <p>Area: {loadService.area}</p>
+                                    <p>Price: {loadService.price}</p>
+                                    <div className="flex flex-row gap-3 items-center bo">
+                                        <div><p><img className="w-12 h-12 rounded" src={loadService.providerPhoto} alt="provider photo" /></p></div>
+                                        <div><p>{loadService.providerName}</p></div>
+                                    </div>
+                                    
                                     <div className="card-actions justify-center">
                                         <Link to={`/services/${loadService._id}`}><button className="p-3 bg-orange-500 text-white font-bold rounded-lg">View Details</button></Link>
                                     </div>
@@ -103,7 +107,7 @@ const AllServices = () => {
 
             </div>
             {
-                displayMoredata.length >= 6 ? <>
+                displayMoredata.length >= 6 ? <> 
                 <div className="flex justify-center mb-10">
                 {
                     !showAllCategory && <>

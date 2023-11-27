@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 import Footer from "../../shared/Footer";
 import Navbar from "../../shared/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const AddServices = () => {
-
+    const {user} = useContext(AuthContext)
     const handleAddServices= e =>{
         e.preventDefault();
 
@@ -13,10 +15,11 @@ const AddServices = () => {
         const providerEmail = form.providerEmail.value;
         const area = form.area.value;
         const description = form.description.value;
+        const providerPhoto = form.providerPhoto.value;
         const price = form.price.value;
         const photo = form.photo.value;
 
-        const servicesDetails = {name, providerEmail, providerName, area, description, price, photo};
+        const servicesDetails = {name, providerEmail, providerName, area, description, providerPhoto, price, photo};
         console.log(servicesDetails);
 
         fetch('http://localhost:5000/services', {
@@ -58,10 +61,10 @@ const AddServices = () => {
                         </div>
                         <div className="form-control w-1/2 mb-5">
                             <label className="label">
-                                <span className="label-text text-lg font-bold">Service Provider Name</span>
+                                <span className="label-text text-lg font-bold" >Service Provider Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="providerName" placeholder="Provider Name" className="input input-bordered w-full" />
+                                <input type="text" name="providerName" value={user.displayName} placeholder="Provider Name" className="input input-bordered w-full" />
                             </label>
                         </div>
 
@@ -73,7 +76,7 @@ const AddServices = () => {
                                 <span className="label-text text-lg font-bold">Service Provider email</span>
                             </label>
                             <label className="input-group">
-                                <input type="email" name="providerEmail" placeholder="Email" className="input input-bordered w-full" />
+                                <input type="email" name="providerEmail" value={user.email} placeholder="Email" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control w-1/2 mb-5">
@@ -86,8 +89,16 @@ const AddServices = () => {
                         </div>
 
                     </div>
-                    {/* Short description */}
-                    <div className="md:flex gap-5">
+                    {/* Provider photo & Short description */}
+                    {/* <div className="md:flex gap-5"> */}
+                        <div className="form-control w-full mb-5">
+                            <label className="label">
+                                <span className="label-text text-lg font-bold">Service Provider image</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="providerPhoto" placeholder="photo" value={user.photoURL} className="input input-bordered w-full" />
+                            </label>
+                        </div>
                         <div className="form-control w-full mb-5">
                             <label className="label">
                                 <span className="label-text text-lg font-bold">Service Description</span>
@@ -97,8 +108,8 @@ const AddServices = () => {
                             </label>
                         </div>
 
+                    {/* </div> */}
 
-                    </div>
                     {/*Price & Photo url */}
                     <div className="">
                         <div className="form-control w-full mb-5">
