@@ -100,7 +100,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-base">Photo url</span>
                             </label>
-                            <input type="text" name="photo" placeholder="Enter your photo-url" className="input input-bordered" required />
+                            <input type="text" name="photo" placeholder="Enter your photo-url" className="input input-bordered"  />
                         </div>
                         {
                             registrationError && <p className="text-red-500">{registrationError}</p>

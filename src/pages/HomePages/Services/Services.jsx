@@ -25,24 +25,26 @@ const Services = () => {
 
     return (
         <div className="my-20">
-            <h2 className="text-3xl font-bold text-center">Popular Services</h2>
+            <h2 className="text-4xl font-bold text-center mb-12">Popular <span className="text-orange-500">Services</span></h2>
             <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
 
                 {
                     services.map(service => <p key={service._id}>
                         <div>
-                            <div className="card  bg-base-100 shadow-xl">
-                                <figure><img src={service.photo} alt="Shoes" /></figure>
-                                <div className="card-body">
-                                    <h2 className="card-title">{service.name}</h2>
-                                    <p>Description: {service.description}</p>
-                                    <p>Price: {service.price}</p>
+                            <div className="card h-[490px] bg-base-100 shadow-xl relative">
+                                <figure><img className="w-full h-44" src={service.photo} alt="Shoes" /></figure>
+                                <div className="p-4 space-y-2">
+                                    <h2 className="text-2xl font-bold">{service.name}</h2>
+                                    {
+                                        service.description.length > 100 ? <p className="text-justify"><span className="font-bold">Description:</span> {service.description.slice(0,100)}</p> : <p>Description: {service.description}</p>
+                                    }
+                                    <p><span className="font-bold">Price: </span> {service.price} $</p>
                                     <div className="flex flex-row item-center gap-3">
                                         <div><p><img className="w-12 h-12 rounded" src={service.providerPhoto} alt="" /></p></div>
-                                        <div><p>{service.providerName}</p></div>
+                                        <div><p className="font-bold">{service.providerName}</p></div>
                                     </div>
-                                    <div className="card-actions justify-center">
-                                        <Link to={`/services/${service._id}`}><button className="btn btn-primary">View Details</button></Link>
+                                    <div className="card-actions justify-center absolute bottom-4 right-1/3">
+                                        <Link to={`/services/${service._id}`}><button className="btn btn-primary text-white font-bold">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

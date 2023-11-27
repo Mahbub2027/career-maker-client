@@ -75,11 +75,15 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                    <span>{user.displayName}</span>
-                    <span><img className="w-12 h-12 rounded" src={user?.photoURL} alt="" /></span>
+                    <span>{user?.displayName}</span>
+                    <span><img className="w-12 h-12 rounded mx-2" src={user?.photoURL} alt="img" /></span>
                     <button onClick={handleLogOut} className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Logout</Link></button>
                     </> :
-                    <button className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Login</Link></button>
+                    <>
+                        {/* <span><img className="w-12 h-12" src="https://i.ibb.co/Qfxw1kb/Honda-All-New-City.jpg" alt="" /></span> */}
+                        <button className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Login</Link></button>
+                    </>
+                    
                 }
             </div>
         </div>
