@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
 
     const navLinks = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/allServices'>Services</Link></li>
+        <li className=""><NavLink className={({isActive, isPending})=> isPending ? 'pending' : isActive ? 'text-red-500 ' : ''} to='/'>Home</NavLink></li>
+        <li className=""><NavLink className={({isActive, isPending})=> isPending ? 'pending' : isActive ? 'text-red-500 ' : ''} to='/allServices'>Services</NavLink></li>
 
         {/* <li tabIndex={0}><Link to='/dashBoard'>Dashboard</Link>
             <ul className="p-2">
@@ -37,12 +37,12 @@ const Navbar = () => {
                         {navLinks}
                         {
                             user && <>
-                                <li>
-                                    <Link to='/dashBoard'>Dashboard</Link>
+                                <li >
+                                    <NavLink  to='/dashBoard'>Dashboard</NavLink>
                                     <ul className="p-2 z-10">
-                                    <li><Link to='/myServices'>My Services</Link></li>
-                                    <li><Link to='/addServices'>Add services</Link></li>
-                                    <li><Link to='/mySchedules'>My schedules</Link></li>
+                                    <li><NavLink to='/myServices'>My Services</NavLink></li>
+                                    <li><NavLink to='/addServices'>Add services</NavLink></li>
+                                    <li><NavLink to='/mySchedules'>My schedules</NavLink></li>
                                     </ul>
                                 </li>
                             </>
@@ -59,11 +59,11 @@ const Navbar = () => {
                         user && <>
                             <li tabIndex={0}>
                             <details>
-                                <summary><Link to='/dashBoard'>Dashboard</Link></summary>
+                                <summary><NavLink to='/dashBoard'>Dashboard</NavLink></summary>
                             <ul className="p-2 w-36 z-10">
-                                <li><Link to='/myServices'>My Services</Link></li>
-                                <li><Link to='/addServices'>Add services</Link></li>
-                                <li><Link to='/mySchedules'>My schedules</Link></li>
+                                <li><NavLink to='/myServices'>My Services</NavLink></li>
+                                <li><NavLink to='/addServices'>Add services</NavLink></li>
+                                <li><NavLink to='/mySchedules'>My schedules</NavLink></li>
                             </ul>
                             </details>
                             </li>

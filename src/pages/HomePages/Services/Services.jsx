@@ -1,12 +1,12 @@
-import {  useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
-// import { AuthContext } from "../../../provider/AuthProvider";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 // import { useLoaderData } from "react-router-dom";
 
 const Services = () => {
-    // const {user} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
     const [services, setServices] = useState([])
 
     // const [displayServices, setDisplayServices] = useState([]);
@@ -40,7 +40,7 @@ const Services = () => {
                                     }
                                     <p><span className="font-bold">Price: </span> {service.price} $</p>
                                     <div className="flex flex-row item-center gap-3">
-                                        <div><p><img className="w-12 h-12 rounded" src={service.providerPhoto} alt="" /></p></div>
+                                        <div><p><img className="w-12 h-12 rounded" src={user && user.photoURL} alt="" /></p></div>
                                         <div><p className="font-bold">{service.providerName}</p></div>
                                     </div>
                                     <div className="card-actions justify-center absolute bottom-4 right-1/3">

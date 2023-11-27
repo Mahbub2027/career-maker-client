@@ -5,12 +5,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const ServicesDetails = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const details = useLoaderData();
     const { name, providerEmail, providerName, area, description, providerPhoto, price, photo } = details;
-    
-    
-    const handleBookServices = e=>{
+
+
+    const handleBookServices = e => {
         const form = e.target;
         const name = form.name.value;
         const providerName = form.providerName.value;
@@ -21,55 +21,57 @@ const ServicesDetails = () => {
         const price = form.price.value;
         const photo = form.photo.value;
 
-        const servicesDetails = {name, providerEmail, providerName, date, instruction, providerPhoto, price, photo};
+        const servicesDetails = { name, providerEmail, providerName, date, instruction, providerPhoto, price, photo };
         console.log(servicesDetails);
 
         fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json',
+                'content-type': 'application/json',
             },
             body: JSON.stringify(servicesDetails)
         })
-        .then(res=> res.json())
-        .then(data=>{
-            console.log(data);
-            // Swal.fire({
-            //     title: 'Good job',
-            //     text: 'Service added successfully',
-            //     icon: 'success',
-            //     confirmButtonText: 'Ok'
-            //     })
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // Swal.fire({
+                //     title: 'Good job',
+                //     text: 'Service added successfully',
+                //     icon: 'success',
+                //     confirmButtonText: 'Ok'
+                //     })
+            })
     }
-    
-    
-    
-    
+
+
+
+
     return (
         <div>
             <Navbar></Navbar>
-            <div className="w-10/12 mx-auto my-10 space-y-3">
+            <div className="w-3/4 mx-auto my-10 space-y-3">
                 <div>
-                    <p><img src={photo} alt="" /></p>
-                    <h2 className="text-3xl font-bold">{name}</h2>
-                    <p>Description: {description}</p>
-                    <p>Price: {price}</p>
-                </div>
-                <div className="flex flex-row items-center gap-3">
-                    <div>
-                        <p><img className="w-12 h-12 rounded" src={providerPhoto} alt="" /></p>
+                    <div className="">
+                        <p className="flex justify-center"><img className="" src={photo} alt="" /></p>
+                        <h2 className="text-4xl font-bold mt-20">{name}</h2>
+                        <p className="my-5"><span className="font-bold text-xl">Description:</span> {description}</p>
+                        <p><span className="font-bold text-xl">Price:</span> {price}</p>
                     </div>
-                    <div>
-                        <h2>{providerName}</h2>
-                        <p>{area}</p>
+                    <div className="flex flex-row items-center gap-3">
+                        <div>
+                            <p><img className="w-12 h-12 rounded" src={providerPhoto} alt="" /></p>
+                        </div>
+                        <div className="my-5">
+                            <h2>{providerName}</h2>
+                            <p>{area}</p>
+                        </div>
                     </div>
                 </div>
                 {/* <button className="btn btn-success">Book now</button> */}
                 {/* modal */}
                 <div>
                     {/* Open the modal using document.getElementById('ID').showModal() method */}
-                    <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Book now</button>
+                    <button className="bg-orange-500 py-3 px-5 text-white font-bold rounded-lg" onClick={() => document.getElementById('my_modal_5').showModal()}>Book now</button>
                     <dialog id="my_modal_5" className="modal ">
                         <div className="modal-box w-10/12 max-w-4xl">
                             <div className="">
@@ -80,15 +82,15 @@ const ServicesDetails = () => {
                                         <div className="  p-5">
                                             <h2 className="text-4xl text-[#1c232e]  text-center font-bold my-8">Book Service</h2>
                                             <form onSubmit={handleBookServices}>
-                                                    <div className="form-control w-full mb-5">
-                                                        <label className="label">
-                                                            <span className="label-text text-base font-bold" >Service name</span>
-                                                        </label>
-                                                        <label className="input-group">
-                                                            <input type="text" name="name" value={name} placeholder="service name" className="input input-bordered w-full" />
-                                                        </label>
-                                                    </div>
-                                                    {/* <div className="form-control w-full mb-5">
+                                                <div className="form-control w-full mb-5">
+                                                    <label className="label">
+                                                        <span className="label-text text-base font-bold" >Service name</span>
+                                                    </label>
+                                                    <label className="input-group">
+                                                        <input type="text" name="name" value={name} placeholder="service name" className="input input-bordered w-full" />
+                                                    </label>
+                                                </div>
+                                                {/* <div className="form-control w-full mb-5">
                                                         <label className="label">
                                                             <span className="label-text text-base font-bold" >Service Provider Name</span>
                                                         </label>
@@ -97,22 +99,22 @@ const ServicesDetails = () => {
                                                         </label>
                                                     </div> */}
 
-                                                    <div className="form-control w-full mb-5">
-                                                        <label className="label">
-                                                            <span className="label-text text-base font-bold">Service Provider email</span>
-                                                        </label>
-                                                        <label className="input-group">
-                                                            <input type="email" name="providerEmail" value={user.email} placeholder="Email" className="input input-bordered w-full" />
-                                                        </label>
-                                                    </div>
-                                                    <div className="form-control w-full mb-5">
-                                                        <label className="label">
-                                                            <span className="label-text text-base font-bold">Services Taking date</span>
-                                                        </label>
-                                                        <label className="input-group">
-                                                            <input type="text" name="date" placeholder="service taking date" className="input input-bordered w-full" />
-                                                        </label>
-                                                    </div>
+                                                <div className="form-control w-full mb-5">
+                                                    <label className="label">
+                                                        <span className="label-text text-base font-bold">Service Provider email</span>
+                                                    </label>
+                                                    <label className="input-group">
+                                                        <input type="email" name="providerEmail" value={user.email} placeholder="Email" className="input input-bordered w-full" />
+                                                    </label>
+                                                </div>
+                                                <div className="form-control w-full mb-5">
+                                                    <label className="label">
+                                                        <span className="label-text text-base font-bold">Services Taking date</span>
+                                                    </label>
+                                                    <label className="input-group">
+                                                        <input type="text" name="date" placeholder="service taking date" className="input input-bordered w-full" />
+                                                    </label>
+                                                </div>
 
                                                 <div className="form-control w-full mb-5">
                                                     <label className="label">

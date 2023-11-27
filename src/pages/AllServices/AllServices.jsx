@@ -80,18 +80,20 @@ const AllServices = () => {
 
             {/* All services category */}
             <h2 className="text-3xl font-bold text-center my-10">All Services</h2>
-            <div className="w-10/12 mx-auto grid grid-cols-1 md:gric-cols-2 lg:grid-cols-3 gap-5 mb-10">
+            <div className="w-10/12  mx-auto grid grid-cols-1 md:gric-cols-2 lg:grid-cols-3 gap-5 mb-10">
                 {
                     displayMoredata.map(loadService => <p key={loadService._id}>
                         <div>
                             <div className="card  bg-base-100 shadow-xl">
-                                <figure><img src={loadService.photo} alt="Shoes" /></figure>
-                                <div className="card-body">
-                                    <h2 className="card-title">{loadService.name}</h2>
-                                    <p>Description: {loadService.description}</p>
-                                    <p>Area: {loadService.area}</p>
-                                    <p>Price: {loadService.price}</p>
-                                    <div className="flex flex-row gap-3 items-center bo">
+                                <figure><img className="w-full h-44" src={loadService.photo} alt="Shoes" /></figure>
+                                <div className="p-4 space-y-3">
+                                    <h2 className="text-2xl font-bold">{loadService.name}</h2>
+                                    {
+                                        loadService.description.length > 100 ? <p><span className="font-bold">Description:</span> {loadService.description.slice(0,100)}</p> : <p>Description: {loadService.description}</p>
+                                    }
+                                    <p><span className="font-bold">Area:</span> {loadService.area}</p>
+                                    <p><span className="font-bold">Price:</span> {loadService.price} $</p>
+                                    <div className="flex flex-row gap-4 items-center">
                                         <div><p><img className="w-12 h-12 rounded" src={loadService.providerPhoto} alt="provider photo" /></p></div>
                                         <div><p>{loadService.providerName}</p></div>
                                     </div>
