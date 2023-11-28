@@ -10,6 +10,7 @@ import AllServices from "../pages/AllServices/AllServices";
 import PrivateRoute from "./PrivateRoute";
 import MySchedules from "../pages/Dashboard/MySchedules/MySchedules";
 import MyServices from "../pages/Dashboard/MyServices/MyServices";
+import UpdateServices from "../UpdateServices/UpdateServices";
 // import BrowserTab from "../BrowserTab/BrowserTab";
 // import Services from "../pages/HomePages/Services/Services";
 
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
             {
                 path: '/myServices',
                 element: <PrivateRoute><MyServices></MyServices></PrivateRoute>
+            },
+            {
+                path: '/updateServices/:id',
+                element: <UpdateServices></UpdateServices>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

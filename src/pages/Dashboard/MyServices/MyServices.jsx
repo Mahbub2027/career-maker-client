@@ -4,6 +4,7 @@ import Navbar from "../../shared/Navbar";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 const MyServices = () => {
@@ -15,7 +16,7 @@ const MyServices = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMyServices(data))
-    }, [])
+    }, [url])
 
     return (
         <div>
@@ -39,7 +40,7 @@ const MyServices = () => {
                                 </div>
 
                                 <div className="card-actions justify-center">
-                                    <button className="p-3 bg-orange-500 text-white font-bold rounded-lg">Update</button>
+                                    <Link to={`/updateServices/${myservice._id}`}><button className="p-3 bg-orange-500 text-white font-bold rounded-lg">Update</button></Link>
                                     <button className="p-3 bg-red-500 text-white font-bold rounded-lg">Delate</button>
                                 </div>
                             </div>
