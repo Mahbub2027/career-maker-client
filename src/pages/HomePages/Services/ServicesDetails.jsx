@@ -25,7 +25,7 @@ const ServicesDetails = () => {
         const bookingsDetails = { name, email, providerName, date, instruction, providerPhoto, price, photo };
         console.log(bookingsDetails);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://career-maker-server-six.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -49,7 +49,7 @@ const ServicesDetails = () => {
     // const handleMyBookings = () =>{
     //     const myBookings = {name, email, providerName, date, instruction, providerPhoto, price, photo }
     //     console.log(myBookings);
-    //     fetch('http://localhost:5000/bookings',{
+    //     fetch('https://career-maker-server-six.vercel.app/bookings',{
     //         method: 'POST',
     //         headers: {
     //             'content-type' : 'application/json'

@@ -40,12 +40,12 @@ const router = createBrowserRouter([
             {
                 path: '/services/:id',
                 element: <PrivateRoute><ServicesDetails></ServicesDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://career-maker-server-six.vercel.app/services/${params.id}`)
             },
             {
                 path: '/allServices',
                 element: <AllServices></AllServices>,
-                loader: ()=> fetch('http://localhost:5000/services')
+                loader: ()=> fetch('https://career-maker-server-six.vercel.app/services')
             },
             {
                 path: '/addServices',
@@ -58,12 +58,12 @@ const router = createBrowserRouter([
             {
                 path: '/myServices',
                 element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
-                loader: ()=> fetch('http://localhost:5000/services')
+                loader: ()=> fetch('https://career-maker-server-six.vercel.app/services')
             },
             {
                 path: '/updateServices/:id',
                 element: <UpdateServices></UpdateServices>,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params}) => fetch(`https://career-maker-server-six.vercel.app/services/${params.id}`)
             }
         ]
     }

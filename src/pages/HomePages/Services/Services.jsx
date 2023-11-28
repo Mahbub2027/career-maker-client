@@ -13,7 +13,7 @@ const Services = () => {
     // console.log(displayServices);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://career-maker-server-six.vercel.app/services')
         .then(res=>res.json())
         .then(data=>{
             setServices(data.slice(0,4));

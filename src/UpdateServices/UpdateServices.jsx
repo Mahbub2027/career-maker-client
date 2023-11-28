@@ -27,7 +27,7 @@ const UpdateServices = () => {
         const servicesDetails = { name, email, providerName, area, description, providerPhoto, price, photo };
         console.log(servicesDetails);
 
-        fetch(`http://localhost:5000/services/${_id}`, {
+        fetch(`https://career-maker-server-six.vercel.app/services/${_id}`, {
 
             method: 'PUT',
             headers: {

@@ -14,7 +14,7 @@ const MyServices = () => {
     const loadServicesData = useLoaderData();
     const {_id} = loadServicesData;
 
-    const url = `http://localhost:5000/services?email=${user?.email}`
+    const url = `https://career-maker-server-six.vercel.app/services?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -32,7 +32,7 @@ const MyServices = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/${_id}`, {
+                fetch(`https://career-maker-server-six.vercel.app/${_id}`, {
                     method: 'DELETE',
                 })
                 

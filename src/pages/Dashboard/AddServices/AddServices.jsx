@@ -22,7 +22,7 @@ const AddServices = () => {
         const servicesDetails = {name, email, providerName, area, description, providerPhoto, price, photo};
         console.log(servicesDetails);
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://career-maker-server-six.vercel.app/services', {
             
             method: 'POST',
             headers: {
