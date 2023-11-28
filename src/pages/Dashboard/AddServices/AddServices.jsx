@@ -12,14 +12,14 @@ const AddServices = () => {
         const form = e.target;
         const name = form.name.value;
         const providerName = form.providerName.value;
-        const providerEmail = form.providerEmail.value;
+        const email = form.email.value;
         const area = form.area.value;
         const description = form.description.value;
         const providerPhoto = form.providerPhoto.value;
         const price = form.price.value;
         const photo = form.photo.value;
 
-        const servicesDetails = {name, providerEmail, providerName, area, description, providerPhoto, price, photo};
+        const servicesDetails = {name, email, providerName, area, description, providerPhoto, price, photo};
         console.log(servicesDetails);
 
         fetch('http://localhost:5000/services', {
@@ -77,7 +77,7 @@ const AddServices = () => {
                                 <span className="label-text text-lg font-bold">Service Provider email</span>
                             </label>
                             <label className="input-group">
-                                <input type="email" name="providerEmail" value={user.email} placeholder="Email" className="input input-bordered w-full" />
+                                <input type="email" name="email" value={user.email} placeholder="Email" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control w-1/2 mb-5">

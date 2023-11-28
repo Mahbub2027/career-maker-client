@@ -9,6 +9,7 @@ import ServicesDetails from "../pages/HomePages/Services/ServicesDetails";
 import AllServices from "../pages/AllServices/AllServices";
 import PrivateRoute from "./PrivateRoute";
 import MySchedules from "../pages/Dashboard/MySchedules/MySchedules";
+import MyServices from "../pages/Dashboard/MyServices/MyServices";
 // import BrowserTab from "../BrowserTab/BrowserTab";
 // import Services from "../pages/HomePages/Services/Services";
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/mySchedules',
                 element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>
             },
+            {
+                path: '/myServices',
+                element: <PrivateRoute><MyServices></MyServices></PrivateRoute>
+            }
         ]
     }
 ]);
