@@ -15,14 +15,15 @@ const AddServices = () => {
         const providerEmail = form.providerEmail.value;
         const area = form.area.value;
         const description = form.description.value;
-        // const providerPhoto = form.providerPhoto.value;
+        const providerPhoto = form.providerPhoto.value;
         const price = form.price.value;
         const photo = form.photo.value;
 
-        const servicesDetails = {name, providerEmail, providerName, area, description, price, photo};
+        const servicesDetails = {name, providerEmail, providerName, area, description, providerPhoto, price, photo};
         console.log(servicesDetails);
 
         fetch('http://localhost:5000/services', {
+            
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
@@ -91,14 +92,14 @@ const AddServices = () => {
                     </div>
                     {/* Provider photo & Short description */}
                     {/* <div className="md:flex gap-5"> */}
-                        {/* <div className="form-control w-full mb-5">
+                        <div className="form-control w-full mb-5">
                             <label className="label">
                                 <span className="label-text text-lg font-bold">Service Provider image</span>
                             </label>
                             <label className="input-group">
                                 <input type="text" name="providerPhoto" placeholder="photo" value={user.photoURL} className="input input-bordered w-full" />
                             </label>
-                        </div> */}
+                        </div>
                         <div className="form-control w-full mb-5">
                             <label className="label">
                                 <span className="label-text text-lg font-bold">Service Description</span>

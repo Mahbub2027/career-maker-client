@@ -76,7 +76,7 @@ const Navbar = () => {
                 {
                     user ? <>
                     <span>{user?.displayName}</span>
-                    <span><img className="w-12 h-12 rounded mx-2" src={user?.photoURL} alt="img" /></span>
+                    <span><img className="w-10 h-10 rounded-full mx-2" src={user?.photoURL} alt="img" /></span>
                     <button onClick={handleLogOut} className="bg-orange-500 py-2 px-3 text-white font-semibold rounded-lg"><Link to='/login'>Logout</Link></button>
                     </> :
                     <>

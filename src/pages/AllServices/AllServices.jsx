@@ -48,10 +48,10 @@ const AllServices = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="text-black">
                         <h1 className="mb-5 text-5xl font-bold">
-                            Services {' '}
+                             {' '} 
                             <span style={{ color: 'red', fontWeight: 'bold' }}>
                                 <Typewriter
-                                    words={['Garden cleaning', 'Floor cleaning', 'House Cleaning', 'Repair furniture']}
+                                    words={['Garden cleaning Services', 'Floor cleaning Services', 'House Cleaning Services', 'Kitchen repair Services']}
                                     loop={0}
                                     cursor
                                     cursorStyle='_'
@@ -94,7 +94,7 @@ const AllServices = () => {
                                     <p><span className="font-bold">Area:</span> {loadService.area}</p>
                                     <p><span className="font-bold">Price:</span> {loadService.price} $</p>
                                     <div className="flex flex-row gap-4 items-center">
-                                        <div><p><img className="w-12 h-12 rounded" src={loadService.providerPhoto} alt="provider photo" /></p></div>
+                                        <div><p><img className="w-12 h-12 rounded-full" src={loadService.providerPhoto} alt="provider photo" /></p></div>
                                         <div><p>{loadService.providerName}</p></div>
                                     </div>
                                     
