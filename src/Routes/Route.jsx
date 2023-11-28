@@ -8,6 +8,7 @@ import AddServices from "../pages/Dashboard/AddServices/AddServices";
 import ServicesDetails from "../pages/HomePages/Services/ServicesDetails";
 import AllServices from "../pages/AllServices/AllServices";
 import PrivateRoute from "./PrivateRoute";
+import MySchedules from "../pages/Dashboard/MySchedules/MySchedules";
 // import BrowserTab from "../BrowserTab/BrowserTab";
 // import Services from "../pages/HomePages/Services/Services";
 
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path: '/addServices',
                 element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+            },
+            {
+                path: '/mySchedules',
+                element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>
             },
         ]
     }

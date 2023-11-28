@@ -15,14 +15,14 @@ const ServicesDetails = () => {
         const form = e.target;
         const name = form.name.value;
         // const providerName = form.providerName.value;
-        const providerEmail = form.providerEmail.value;
+        const email = form.email.value;
         const date = form.date.value;
         const instruction = form.instruction.value;
         // const providerPhoto = form.providerPhoto.value;
         const price = form.price.value;
         const photo = form.photo.value;
 
-        const bookingsDetails = { name, providerEmail, providerName, date, instruction, providerPhoto, price, photo };
+        const bookingsDetails = { name, email, providerName, date, instruction, providerPhoto, price, photo };
         console.log(bookingsDetails);
 
         fetch('http://localhost:5000/bookings', {
@@ -47,7 +47,7 @@ const ServicesDetails = () => {
     }
 
     // const handleMyBookings = () =>{
-    //     const myBookings = {name, providerEmail, providerName, date, instruction, providerPhoto, price, photo }
+    //     const myBookings = {name, email, providerName, date, instruction, providerPhoto, price, photo }
     //     console.log(myBookings);
     //     fetch('http://localhost:5000/bookings',{
     //         method: 'POST',
@@ -126,7 +126,7 @@ const ServicesDetails = () => {
                                                         <span className="label-text text-base font-bold">Service Provider email</span>
                                                     </label>
                                                     <label className="input-group">
-                                                        <input type="email" name="providerEmail" value={user.email} placeholder="Email" className="input input-bordered w-full" />
+                                                        <input type="email" name="email" value={user.email} placeholder="Email" className="input input-bordered w-full" />
                                                     </label>
                                                 </div>
                                                 <div className="form-control w-full mb-5">
