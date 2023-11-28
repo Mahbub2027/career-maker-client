@@ -4,12 +4,15 @@ import Navbar from "../../shared/Navbar";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 // import { Link } from "react-router-dom";
 
 const MyServices = () => {
     const { user } = useContext(AuthContext)
     const [myServices, setMyServices] = useState([])
+    const loadServicesData = useLoaderData();
+    const {_id} = loadServicesData;
 
     const url = `http://localhost:5000/services?email=${user?.email}`
     useEffect(() => {
@@ -17,6 +20,41 @@ const MyServices = () => {
             .then(res => res.json())
             .then(data => setMyServices(data))
     }, [url])
+
+    const handleDelete = _id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/${_id}`, {
+                    method: 'DELETE',
+                })
+                
+                    .then(res => res.json())
+                    .then(data => {
+                    console.log(data)
+                    // if (data.deletedCount === 1) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                      )
+                    //   const remaining = mycarts.filter(car => car._id !== _id);
+                    //   setmycarts(remaining);
+                // }
+                
+            })
+
+            }
+        })
+        console.log(_id);
+    }
 
     return (
         <div>
@@ -41,7 +79,7 @@ const MyServices = () => {
 
                                 <div className="card-actions justify-center">
                                     <Link to={`/updateServices/${myservice._id}`}><button className="p-3 bg-orange-500 text-white font-bold rounded-lg">Update</button></Link>
-                                    <button className="p-3 bg-red-500 text-white font-bold rounded-lg">Delate</button>
+                                    <button onClick={() =>handleDelete(_id)} className="p-3 bg-red-500 text-white font-bold rounded-lg">Delate</button>
                                 </div>
                             </div>
                         </div>
