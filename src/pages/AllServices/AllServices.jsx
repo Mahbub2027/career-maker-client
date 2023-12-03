@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { Typewriter } from 'react-simple-typewriter'
 
+import Aos from "aos";
+import 'aos/dist/aos.css';
+
 const AllServices = () => {
     // const loadServices = useLoaderData();
     const [loadServices, setLoadServices] = useState([]);
@@ -36,12 +39,16 @@ const AllServices = () => {
         console.log(filterdata);
         setDisplayMoreData(filterdata);
     }
+
+    useEffect(()=>{
+        Aos.init({duration: 3000})
+    },[])
         
 
     return (
         <div>
             <Navbar></Navbar>
-
+            {/* banner & search */}
             <div className="hero h-[90vh]" style={{ backgroundImage: 'url(https://i.ibb.co/hZD3z9b/Brilho-Luxury-Home-Services-Inc-House-and-Condo-Cleaning-in-Toronto-and-the-GTA.jpg)' }}>
                 {/* <div className="hero h-[90vh] bg-cover" style={{ backgroundImage: 'url(https://i.ibb.co/z5RpsLm/123524425-bottles-with-detergents-brushes-and-sponges-on-concrete-background-colorful-cleaning-produ.jpg)' }}> */}
                 <div className="hero-overlay bg-black bg-opacity-30"></div>
@@ -83,7 +90,7 @@ const AllServices = () => {
             <div className="w-10/12  mx-auto grid grid-cols-1 md:gric-cols-2 lg:grid-cols-3 gap-5 mb-10">
                 {
                     displayMoredata.map(loadService => <p key={loadService._id}>
-                        <div>
+                        <div data-aos="zoom-in">
                             <div className="card  bg-base-100 shadow-xl">
                                 <figure><img className="w-full h-44" src={loadService.photo} alt="Shoes" /></figure>
                                 <div className="p-4 space-y-3">
